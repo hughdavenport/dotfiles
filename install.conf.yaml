@@ -1,4 +1,7 @@
 - clean: []
 - link:
     ~/.dotfiles: ''
+    ~/.bashrc:
+        path: bashrc
+        force: true
 - shell: []
