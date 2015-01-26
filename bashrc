@@ -111,3 +111,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+DOTD=~/.bashrc.d
+for FILE in $DOTD/*; do
+    [ "$FILE" != "$DOTD/*" ] && source $FILE
+done
+
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
