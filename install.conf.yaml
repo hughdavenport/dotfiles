@@ -4,4 +4,5 @@
     ~/.bashrc:
         path: bashrc
         force: true
+    ~/.bashrc.d: bashrc.d
 - shell: []
