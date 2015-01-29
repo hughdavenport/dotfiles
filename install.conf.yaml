@@ -5,4 +5,7 @@
         path: bashrc
         force: true
     ~/.bashrc.d: bashrc.d
+    ~/.tmux.conf:
+        path: tmux.conf
+        force: true
 - shell: []
