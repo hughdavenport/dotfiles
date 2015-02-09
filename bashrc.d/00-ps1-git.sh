@@ -1,7 +1,7 @@
-style_git_chars="${RESET}$(tput setaf 7)"   # white/base2 (but inverts)
+style_git_chars="${RESET}${BASE2_FG}"
 style_git_branch="${RESET}${CYAN}"
 style_git_dirty="${RESET}${ORANGE}"
-style_git_flags="${RESET}${MAGENTA}"
+style_git_flags="${RESET}${RED}"
 
 initial_commit_string="## Initial commit on master"
 no_branch_string="## HEAD (no branch)"

@@ -8,8 +8,8 @@ RESET=$(tput sgr0)
 style_user="\[${RESET}${ORANGE}\]"
 style_host="\[${RESET}${YELLOW}\]"
 style_path="\[${RESET}${GREEN}\]"
-style_chars="\[${RESET}$(tput setaf 7)\]"   # white/base2 (but inverts)
-style_cmdline="\[${RESET}$(tput setaf 7)\]" # white/base2 (but inverts)
+style_chars="\[${RESET}${BASE2_FG}\]"
+style_cmdline="\[${RESET}${BASE2_FG}\]"
 
 # The prompt itself
 PS1="\n"                    # newline to start it off
