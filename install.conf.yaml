@@ -9,4 +9,5 @@
         path: tmux.conf
         force: true
     ~/.tmux.conf.d: tmux.conf.d
+    ~/.dircolors-solarized: dircolors-solarized
 - shell: []
