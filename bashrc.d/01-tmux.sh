@@ -1,3 +1,4 @@
+which tmux >/dev/null || return
 source /usr/share/doc/tmux/examples/bash_completion_tmux.sh
 case $- in *i*)
     if [ -z "$TMUX" ]; then
