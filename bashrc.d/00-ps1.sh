@@ -18,6 +18,9 @@ PS1+="${style_chars}@"      # @
 PS1+="${style_host}\h"      # Hostname
 PS1+="${style_chars}: "     # :
 PS1+="${style_path}\w"      # Working directory
+# Load some git goodness
+source ${BASH_SOURCE%.sh}-git.sh
+PS1+="\$(prompt_git)"
 PS1+="\n"                   # newline to clean screen
 PS1+="${style_chars}\$ "    # $ prompt
 PS1+="${style_cmdline}"     # the command entered will be styled
