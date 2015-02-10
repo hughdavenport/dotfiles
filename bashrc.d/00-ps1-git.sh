@@ -1,5 +1,6 @@
 style_git_chars="${RESET}${BASE2_FG}"
 style_git_branch="${RESET}${CYAN}"
+style_git_tag="${RESET}${BLUE}"
 style_git_dirty="${RESET}${ORANGE}"
 style_git_flags="${RESET}${RED}"
 
@@ -8,13 +9,14 @@ no_branch_string="## HEAD (no branch)"
 
 # Adapted (quite heavily) from: https://github.com/cowboy/dotfiles
 function prompt_git() {
-    local status flags branch
+    local status flags branch tag
     status="$(git status -b --porcelain 2>/dev/null)"
     # fail early
     [[ $? != 0 ]] && return;
 
     # Get branch name and print
     branch="$(echo "$status" | head -n 1)"
+    tag="$(git describe --tags 2>/dev/null)"
     dirtyremote=""
     if [[ "$branch" = "$initial_commit_string" ]]; then
         branch="(init)"
@@ -33,6 +35,10 @@ function prompt_git() {
 
     if [[ "$dirtyremote" ]]; then
         echo -en " ${style_git_dirty}${dirtyremote}"
+    fi
+
+    if [[ "$tag" ]]; then
+        echo -en " ${style_git_tag}[tag:${tag}]"
     fi
 
     # Find out dirtyness and print
