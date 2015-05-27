@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# based off http://www.huyng.com/posts/productivity-boost-with-tmux-iterm2-workspaces/
+
+# Get the window to have a theme
+source ~/.bashrc.d/01-urxvt-dynamic-colors.sh
+
+FALLBACK_SHELL=$(getent passwd $(whoami) | awk -F : '{print $7}')
+which tmux >/dev/null || exec $FALLBACK_SHELL
+tmux -V >/dev/null 2>&1 || exec $FALLBACK_SHELL
+
+# TODO: colorize this
+echo "Available sessions"
+echo "------------------"
+echo " "
+sessions=($(tmux list-sessions -F "#S"))
+# Don't use select, doesn't support empty options...
+i=1; for val in ${sessions[@]}; do
+    echo "${i}) ${val}"
+    let i++
+done;
+read -p "Please choose your session: " SESSION_NAME
+
+if [[ $SESSION_NAME =~ ^[0-9]+$ ]] && [ $SESSION_NAME -gt 0 -a $SESSION_NAME -lt $(( ${#sessions[@]}+1 )) ]; then
+    # Is a number in range of array, use the result
+    exec tmux attach-session -t ${sessions[$(( $SESSION_NAME - 1 ))]}
+elif [ -z "$SESSION_NAME" ]; then
+    # Blank, so just create new autonumbered session
+    exec tmux new-session
+else
+    # Session name entered, so use that for a new (or existing)
+    exec tmux new-session -A -s "$SESSION_NAME"
+fi

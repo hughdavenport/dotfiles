@@ -10,4 +10,5 @@
         force: true
     ~/.tmux.conf.d: tmux.conf.d
     ~/.dircolors-solarized: dircolors-solarized
+    ~/bin: bin
 - shell: []
