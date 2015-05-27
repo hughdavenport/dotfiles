@@ -113,8 +113,8 @@ if ! shopt -oq posix; then
 fi
 
 DOTD=~/.bashrc.d
-for FILE in $DOTD/*; do
-    [ "$FILE" != "$DOTD/*" ] && source $FILE
+for FILE in $DOTD/*.sh; do
+    [ "$FILE" != "$DOTD/*.sh" ] && source $FILE
 done
 
 if [ -f ~/.bashrc_local ]; then
