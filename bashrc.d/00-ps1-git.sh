@@ -1,8 +1,8 @@
 style_git_chars="${RESET}${BASE2_FG}"
 style_git_branch="${RESET}${CYAN}"
 style_git_tag="${RESET}${BLUE}"
-style_git_dirty="${RESET}${ORANGE}"
-style_git_flags="${RESET}${RED}"
+style_git_dirty="${RESET}${BOLD}${ORANGE}"
+style_git_flags="${RESET}${BOLD}${RED}"
 
 initial_commit_string="## Initial commit on master"
 no_branch_string="## HEAD (no branch)"
