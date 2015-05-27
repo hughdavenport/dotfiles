@@ -1,0 +1,21 @@
+#!/bin/sh
+
+[ -z "$TMUX" ] && exec /usr/bin/ssh "$@"
+
+set_prefix() {
+    tmux set-option prefix $1
+    tmux set-option prefix2 $1
+    tmux bind-key $1 send-keys $1
+}
+remove_prefix() {
+    tmux set-option -u prefix
+    tmux set-option -u prefix2
+    tmux unbind-key $1
+}
+prefix="C-b"
+set_prefix "$prefix" >/dev/null 2>&1
+trap 'remove_prefix "'"$prefix"'" >/dev/null 2>&1' INT
+/usr/bin/ssh "$@"
+RET=$?
+remove_prefix "$prefix" >/dev/null 2>&1
+return $RET
