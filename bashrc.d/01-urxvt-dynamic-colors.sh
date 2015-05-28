@@ -1,4 +1,4 @@
-if [ -z "$DISPLAY" -o -n "$SSH_CONNECTION" ]; then
+if [ -z "$DISPLAY" -o -n "$SSH_CONNECTION" -o -n "$DYNAMIC_COLORS_SUFFIX" ]; then
     return;
 fi
 export PATH="$HOME/.dynamic-colors/bin:$PATH"
