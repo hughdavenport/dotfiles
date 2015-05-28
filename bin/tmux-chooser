@@ -33,5 +33,6 @@ elif [ -z "$SESSION_NAME" ]; then
     exec tmux new-session
 else
     # Session name entered, so use that for a new (or existing)
-    exec tmux new-session -A -s "$SESSION_NAME"
+    tmux has-session -t "$SESSION_NAME" && exec tmux attach-session -t "$SESSION_NAME" ||
+    exec tmux new-session -s "$SESSION_NAME"
 fi
