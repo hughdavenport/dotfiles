@@ -1,7 +1,77 @@
-#!/bin/sh
+#!/bin/bash
 
-[ -z "$TMUX" ] && exec /usr/bin/ssh "$@"
+SSH="/usr/bin/ssh"
+[ -z "$TMUX" ] && exec $SSH "$@"
 
+# Taken from ssh.c main function
+ARGS=$(getopt -o "1246ab:c:e:fgi:kl:m:no:p:qstvxACD:E:F:I:KL:MNO:PQ:R:S:TVw:W:XYy" -- "$@" 2>/dev/null)
+
+# Get hostname and username, and whether arguments after hostname
+ARGEND=0
+expectuser=0
+USERNAME=""
+exportport=0
+PORT=""
+HOST=""
+for arg in $ARGS; do
+	if (( $ARGEND )); then
+		if [ -z "$HOST" ]; then
+			HOST=$arg
+			HOST=${HOST%\'}
+			HOST=${HOST#\'}
+		else
+			# Had extra ssh args after hostname, just exec
+			exec $SSH "$@"
+		fi
+	elif [ "$arg" = "--" ]; then
+		ARGEND=1
+	elif (( $expectuser )); then
+		USERNAME=$arg
+		USERNAME=${USERNAME%\'}
+		USERNAME=${USERNAME#\'}
+		expectuser=0
+	elif [ "$arg" = "-l" ]; then
+		expectuser=1
+	elif (( $expectport )); then
+		PORT=$arg
+		PORT=${PORT%\'}
+		PORT=${PORT#\'}
+	fi
+done
+
+# Make a tmux test string, making sure that any -l option is kept in correct order
+TMUXTEST="$HOST"
+if [ -n "$PORT" ]; then
+	TMUXTEST="-p${PORT} ${TMUXTEST}"
+fi
+if [ -n "$USERNAME" ]; then
+	seenhost=0
+	userafter=0
+	for arg in "$@"; do
+		if (( $seenhost )); then
+			if [ "${arg#-l}" != "${arg}" ]; then
+				userafter=1
+				break
+			fi
+		elif [ "${arg}" = "${HOST}" ]; then
+			seenhost=1
+		fi
+	done
+	if (( $userafter )); then
+		TMUXTEST="${TMUXTEST} -l${USERNAME}"
+	else
+		TMUXTEST="-l${USERNAME} ${TMUXTEST}"
+	fi
+fi
+TMUXTEST="${TMUXTEST} test -e ~/bin/tmux-chooser && which tmux >/dev/null"
+BATCHMODE="-o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null"
+# Check if tmux is there, use a batchmode string so no interaction
+if ! $SSH $BATCHMODE $TMUXTEST 2>/dev/null; then
+	# remote doesn't have tmux, just exec
+	exec $SSH "$@"
+fi
+
+# run ssh, expecting far end tmux to kick in, so switch our prefix now, and then back on exit
 set_prefix() {
     tmux set-option prefix $1
     tmux set-option prefix2 $1
@@ -15,7 +85,7 @@ remove_prefix() {
 prefix="C-b"
 set_prefix "$prefix" >/dev/null 2>&1
 trap 'remove_prefix "'"$prefix"'" >/dev/null 2>&1' INT
-/usr/bin/ssh "$@"
+$SSH "$@"
 RET=$?
 remove_prefix "$prefix" >/dev/null 2>&1
-return $RET
+exit $RET
