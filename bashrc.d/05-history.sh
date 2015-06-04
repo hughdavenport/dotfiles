@@ -1,5 +1,5 @@
 shopt -s histappend
-HISTCONTROL=""
+HISTCONTROL="ignoredups"
 HISTSIZE=-1
 HISTFILESIZE=-1
 HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S  "
