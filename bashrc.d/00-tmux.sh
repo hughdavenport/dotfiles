@@ -1,3 +1,4 @@
+[ -f ~/.tmux_fallback ] && return
 [ -v TMUX_FALLBACK ] && return
 which tmux >/dev/null || return
 tmux -V >/dev/null 2>&1 || return
