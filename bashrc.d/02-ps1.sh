@@ -8,6 +8,7 @@ RESET=$(tput sgr0)
 style_user="\[${RESET}${ORANGE}\]"
 style_host="\[${RESET}${YELLOW}\]"
 style_path="\[${RESET}${GREEN}\]"
+style_time="\[${RESET}${BASE0_FG}\]"
 style_chars="\[${RESET}${BASE2_FG}\]"
 style_cmdline="\[${RESET}${BASE2_FG}\]"
 
@@ -22,6 +23,7 @@ PS1+="${style_path}\w"      # Working directory
 source $(dirname ${BASH_SOURCE})/ps1-git
 PS1+="\$(prompt_git)"
 PS1+="\n"                   # newline to clean screen
+PS1+="${style_time}\A "	    # Show the time
 PS1+="${style_chars}\$ "    # $ prompt
 PS1+="${style_cmdline}"     # the command entered will be styled
 
