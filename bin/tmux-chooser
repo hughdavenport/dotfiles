@@ -5,9 +5,11 @@
 # Get the window to have a theme
 source ~/.bashrc.d/01-urxvt-dynamic-colors.sh
 
+export TMUX_FALLBACK=""
 FALLBACK_SHELL=$(getent passwd $(whoami) | awk -F : '{print $7}')
 which tmux >/dev/null || exec $FALLBACK_SHELL
 tmux -V >/dev/null 2>&1 || exec $FALLBACK_SHELL
+unset TMUX_FALLBACK
 
 # TODO: colorize this
 echo "Available sessions"
