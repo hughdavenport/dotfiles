@@ -63,7 +63,7 @@ if [ -n "$USERNAME" ]; then
 		TMUXTEST="-l${USERNAME} ${TMUXTEST}"
 	fi
 fi
-TMUXTEST="${TMUXTEST} test -e ~/bin/tmux-chooser && which tmux >/dev/null"
+TMUXTEST="${TMUXTEST} test ! -f ~/.tmux_fallback && test -e ~/bin/tmux-chooser && which tmux >/dev/null"
 BATCHMODE="-o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null"
 # Check if tmux is there, use a batchmode string so no interaction
 if ! $SSH $BATCHMODE $TMUXTEST 2>/dev/null; then
