@@ -11,4 +11,5 @@
     ~/.tmux.conf.d: tmux.conf.d
     ~/.dircolors-solarized: dircolors-solarized
     ~/bin: bin
+    ~/.ssh/config.d: ssh.config.d
 - shell: []
