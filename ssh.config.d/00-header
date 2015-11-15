@@ -17,7 +17,7 @@ Host *
     Compression yes
 
     ControlMaster auto
-    ControlPersist yes
+    ControlPersist 10m
     ControlPath ~/.ssh/socket-%C
 
 ### END GLOBAL OPTIONS ###
