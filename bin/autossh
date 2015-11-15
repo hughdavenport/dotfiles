@@ -1,0 +1,4 @@
+#!/bin/sh
+export LC_TMUX=$(uuid)
+exec /usr/bin/autossh "$@"
+

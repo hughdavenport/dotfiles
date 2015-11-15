@@ -11,21 +11,42 @@ which tmux >/dev/null || exec $FALLBACK_SHELL
 tmux -V >/dev/null 2>&1 || exec $FALLBACK_SHELL
 unset TMUX_FALLBACK
 
-# TODO: colorize this
-echo "Available sessions"
-echo "------------------"
-echo " "
 # Split on newline, so we can have spaces in session names
 OLDIFS="${IFS}"
 IFS="
 "
 sessions=($(tmux list-sessions -F "#S"))
 IFS="${OLDIFS}"
-# Don't use select, doesn't support empty options...
-for ((i = 0; i < ${#sessions[@]}; i++)); do
-    echo "$(( $i + 1 ))) ${sessions[$i]}"
-done;
-read -p "Please choose your session: " SESSION_NAME || exit
+
+if [ ! -z ${LC_TMUX+x} ]; then
+    # LC_TMUX is a hack, so that it is accepted through SSH
+    # It holds a unique id of the terminal that called it, used for the autossh
+    # connection.
+    # We should loop through all the sessions, and if one has the same variable
+    # set in the env, then connect, otherwise create a new one based on the below.
+    LC_TMUX_TEST="${LC_TMUX}"
+    unset LC_TMUX
+    for ((i = 0; i < ${#sessions[@]}; i++)); do
+        if source <(tmux show-environment -t "${sessions[$i]}" | grep ^LC_TMUX=) && [ "$LC_TMUX" = "$LC_TMUX_TEST" ]; then
+            SESSION_NAME="${sessions[$i]}"
+            break
+        fi
+    done
+    export LC_TMUX="${LC_TMUX_TEST}"
+    unset LC_TMUX_TEST
+fi
+
+if [ -z ${SESSION_NAME+x} ]; then
+    # TODO: colorize this
+    echo "Available sessions"
+    echo "------------------"
+    echo " "
+    # Don't use select, doesn't support empty options...
+    for ((i = 0; i < ${#sessions[@]}; i++)); do
+        echo "$(( $i + 1 ))) ${sessions[$i]}"
+    done;
+    read -p "Please choose your session: " SESSION_NAME || exit
+fi
 
 if [[ $SESSION_NAME =~ ^[0-9]+$ ]] && [ $SESSION_NAME -gt 0 -a $SESSION_NAME -lt $(( ${#sessions[@]}+1 )) ]; then
     # Is a number in range of array, use the result
