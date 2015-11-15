@@ -17,6 +17,7 @@ expectuser=0
 USERNAME=""
 exportport=0
 PORT=""
+VERBOSE=0
 HOST=""
 for arg in $ARGS; do
 	if (( $ARGEND )); then
@@ -41,11 +42,19 @@ for arg in $ARGS; do
 		PORT=$arg
 		PORT=${PORT%\'}
 		PORT=${PORT#\'}
+        elif [ "$arg" = "-v" ]; then
+                let VERBOSE++
 	fi
 done
 
 # Make a tmux test string, making sure that any -l option is kept in correct order
 TMUXTEST="$HOST"
+DEVNULL=/dev/null
+if [ "$VERBOSE" -ne 0 ]; then
+        printf -v VERBOSE "%${VERBOSE}s"
+        TMUXTEST="-${VERBOSE// /v} ${TMUXTEST}"
+        DEVNULL=/dev/fd/2
+fi
 if [ -n "$PORT" ]; then
 	TMUXTEST="-p${PORT} ${TMUXTEST}"
 fi
@@ -71,7 +80,7 @@ fi
 TMUXTEST="${TMUXTEST} test ! -f ~/.tmux_fallback && test -e ~/bin/tmux-chooser && which tmux >/dev/null"
 BATCHMODE="-o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null"
 # Check if tmux is there, use a batchmode string so no interaction
-if ! $SSH $BATCHMODE $TMUXTEST 2>/dev/null; then
+if ! $SSH $BATCHMODE $TMUXTEST 2>${DEVNULL}; then
 	# remote doesn't have tmux, just exec
 	exec $SSH "$@"
 fi
