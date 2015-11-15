@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SSH="/usr/bin/ssh"
+SSH="/usr/bin/autossh"
 [ -z "$TMUX" ] && exec $SSH "$@"
 
 # Taken from ssh.c main function
@@ -85,6 +85,7 @@ remove_prefix() {
 prefix="C-b"
 set_prefix "$prefix" >/dev/null 2>&1
 trap 'remove_prefix "'"$prefix"'" >/dev/null 2>&1' INT
+export LC_TMUX=$(uuid)
 $SSH "$@"
 RET=$?
 remove_prefix "$prefix" >/dev/null 2>&1
