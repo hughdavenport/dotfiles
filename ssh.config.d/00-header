@@ -20,5 +20,8 @@ Host *
     ControlPersist 10m
     ControlPath ~/.ssh/socket-%C
 
+    # Fix CVE-2016-0777 and CVE-2016-0778
+    UseRoaming no
+
 ### END GLOBAL OPTIONS ###
 
