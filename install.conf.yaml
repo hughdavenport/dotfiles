@@ -13,5 +13,8 @@
     ~/.dynamic-colors: dynamic-colors
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
+- shell: [mkdir -p ~/.bash-completion]
+- link:
+    ~/.bash-completion/tmux.completion.bash: bash-it/completion/available/tmux.completion.bash
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

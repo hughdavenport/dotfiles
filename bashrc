@@ -30,6 +30,10 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+  COMPLETIONS=~/.bash-completion
+  for FILE in $COMPLETIONS/*.bash; do
+      [ "$FILE" != "$COMPLETIONS/*.bash" ] && source $FILE
+  done
 fi
 
 DOTD=~/.bashrc.d

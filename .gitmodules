@@ -7,3 +7,6 @@
 [submodule "dynamic-colors"]
 	path = dynamic-colors
 	url = https://github.com/sos4nt/dynamic-colors
+[submodule "bash-it"]
+	path = bash-it
+	url = https://github.com/Bash-it/bash-it
