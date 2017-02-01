@@ -10,6 +10,8 @@
         force: true
     ~/.tmux.conf.d: tmux.conf.d
     ~/.dircolors-solarized: dircolors-solarized
+    ~/.dynamic-colors: dynamic-colors
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
-- shell: []
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]

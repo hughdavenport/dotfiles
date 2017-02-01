@@ -4,3 +4,6 @@
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
+[submodule "dynamic-colors"]
+	path = dynamic-colors
+	url = https://github.com/sos4nt/dynamic-colors
