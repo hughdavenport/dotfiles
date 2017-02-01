@@ -10,3 +10,6 @@
 [submodule "bash-it"]
 	path = bash-it
 	url = https://github.com/Bash-it/bash-it
+[submodule "urxvt-font-size"]
+	path = urxvt-font-size
+	url = https://github.com/majutsushi/urxvt-font-size

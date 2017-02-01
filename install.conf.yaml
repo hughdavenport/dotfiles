@@ -13,8 +13,9 @@
     ~/.dynamic-colors: dynamic-colors
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
-- shell: [mkdir -p ~/.bash-completion]
+- shell: 
+    - [mkdir -p ~/.bash-completion ~/.urxvt/ext, Making directories to link submodules into]
+    - [git submodule update --init --recursive, Installing submodules]
 - link:
     ~/.bash-completion/tmux.completion.bash: bash-it/completion/available/tmux.completion.bash
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
+    ~/.urxvt/ext/font-size: urxvt-font-size/font-size
