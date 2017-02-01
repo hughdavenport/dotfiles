@@ -1,4 +1,14 @@
-urxvt*dynamicColors: on
+! Turn on dynamic colours so we can get solarized
+URxvt.dynamicColors: on
+! Do not waste paper by accidental keypresses
+URxvt.print-pipe: "cat > /dev/null"
+! We use tmux, so do not show scroll bar or save history
+URxvt.scrollBar: false
+URxvt.saveLines: 0
+! Nice to be able to scroll in tmux, so use the secondary screen
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 1
+URxvt.secondaryWheel: 1
 
 URxvt.keysym.C-equal: font-size:increase
 URxvt.keysym.C-plus:  font-size:increase
