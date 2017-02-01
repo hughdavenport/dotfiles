@@ -9,6 +9,9 @@ URxvt.saveLines: 0
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 1
 URxvt.secondaryWheel: 1
+! Just incase we have it compiled in, disable it
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 URxvt.keysym.C-equal: font-size:increase
 URxvt.keysym.C-plus:  font-size:increase
