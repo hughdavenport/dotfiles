@@ -9,6 +9,9 @@
         path: tmux.conf
         force: true
     ~/.tmux.conf.d: tmux.conf.d
+    ~/.Xresources: 
+        path: Xresources
+        force: true
     ~/.dircolors-solarized: dircolors-solarized
     ~/.dynamic-colors: dynamic-colors
     ~/bin: bin
