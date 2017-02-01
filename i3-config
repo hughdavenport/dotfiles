@@ -154,3 +154,5 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec_always ~/bin/i3wm-startup.sh
