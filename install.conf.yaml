@@ -12,6 +12,9 @@
     ~/.Xresources: 
         path: Xresources
         force: true
+    ~/.config/i3/config:
+        path: i3-config
+        force: true
     ~/.dircolors-solarized: dircolors-solarized
     ~/.dynamic-colors: dynamic-colors
     ~/bin: bin
