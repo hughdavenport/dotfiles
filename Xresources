@@ -1,1 +1,17 @@
 urxvt*dynamicColors: on
+
+URxvt.keysym.C-equal: font-size:increase
+URxvt.keysym.C-plus:  font-size:increase
+URxvt.keysym.C-minus: font-size:decrease
+URxvt.keysym.C-0:     font-size:reset
+
+URxvt.keysym.C-underscore: font-size:show
+
+! This was on old laptop, had comment doesnot do well with accents so will test that
+URxvt*font: xft:Terminus:size=12
+! Has really large spacing, not a fan
+!URxvt*font: xft:Incosolata:size=10
+! New one, looks nice from the start, not as crisp as terminus though, need to test with accents and stuff
+!URxvt*font: xft:Hack:size=10
+
+! Font wise, I also had Emoji One Color, and Symbola installed
