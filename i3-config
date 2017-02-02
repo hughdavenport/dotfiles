@@ -155,4 +155,4 @@ bar {
         status_command i3status
 }
 
-exec_always ~/bin/i3wm-startup.sh
+exec_always --no-startup-id ~/bin/i3wm-startup.sh
