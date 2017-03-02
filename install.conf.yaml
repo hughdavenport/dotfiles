@@ -17,6 +17,7 @@
         force: true
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
+    ~/.gnupg/gpg.conf: gpg.conf
 - shell: 
     - [mkdir -p ~/.bash-completion ~/.urxvt/ext, Making directories to link submodules into]
     - [git submodule update --init --recursive, Installing submodules]
