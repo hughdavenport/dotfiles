@@ -16,3 +16,6 @@
 [submodule "urxvt-perls"]
 	path = urxvt-perls
 	url = https://github.com/muennich/urxvt-perls
+[submodule "ssh-ident"]
+	path = ssh-ident
+	url = https://github.com/ccontavalli/ssh-ident
