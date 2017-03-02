@@ -24,3 +24,4 @@
 - link:
     ~/.bash-completion/tmux.completion.bash: submodules/bash-it/completion/available/tmux.completion.bash
     ~/.urxvt/ext/font-size: submodules/urxvt-font-size/font-size
+    ~/bin/ssh: submodules/ssh-ident/ssh-ident

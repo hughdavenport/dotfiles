@@ -1,4 +1,5 @@
 MATCH_ARGV = [
+	(r"github.com", "github"),
 ]
 
 SSH_ADD_DEFAULT_OPTIONS = "-t 8h"

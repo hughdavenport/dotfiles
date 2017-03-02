@@ -1,0 +1,116 @@
+#!/bin/bash
+
+SSH="/usr/bin/ssh"
+AUTOSSH=$(which autossh)
+
+# Generate a config file
+cat ~/.ssh/config.d/* 2>/dev/null > ~/.ssh/config
+
+#ssh-add -X
+[ -z "$TMUX" ] && exec $SSH "$@"
+
+# Taken from ssh.c main function
+getopt 2>/dev/null >/dev/null
+if (( $? )); then
+  # gnu version of getopt
+  ARGS=$(getopt -o "1246ab:c:e:fgi:kl:m:no:p:qstvxACD:E:F:I:KL:MNO:PQ:R:S:TVw:W:XYy" -- "$@" 2>/dev/null)
+else
+  # bsd version, doesn't fail nicely
+  ARGS=$(getopt "1246ab:c:e:fgi:kl:m:no:p:qstvxACD:E:F:I:KL:MNO:PQ:R:S:TVw:W:XYy" $@ 2>/dev/null)
+fi
+
+# Get hostname and username, and whether arguments after hostname
+ARGEND=0
+expectuser=0
+USERNAME=""
+exportport=0
+PORT=""
+VERBOSE=0
+HOST=""
+for arg in $ARGS; do
+	if (( $ARGEND )); then
+		if [ -z "$HOST" ]; then
+			HOST=$arg
+			HOST=${HOST%\'}
+			HOST=${HOST#\'}
+		else
+			# Had extra ssh args after hostname, just exec
+			exec $SSH "$@"
+		fi
+	elif [ "$arg" = "--" ]; then
+		ARGEND=1
+	elif (( $expectuser )); then
+		USERNAME=$arg
+		USERNAME=${USERNAME%\'}
+		USERNAME=${USERNAME#\'}
+		expectuser=0
+	elif [ "$arg" = "-l" ]; then
+		expectuser=1
+	elif (( $expectport )); then
+		PORT=$arg
+		PORT=${PORT%\'}
+		PORT=${PORT#\'}
+        elif [ "$arg" = "-v" ]; then
+                let VERBOSE++
+	fi
+done
+
+# Make a tmux test string, making sure that any -l option is kept in correct order
+TMUXTEST="$HOST"
+DEVNULL=/dev/null
+if [ "$VERBOSE" -ne 0 ]; then
+        printf -v VERBOSE "%${VERBOSE}s"
+        TMUXTEST="-${VERBOSE// /v} ${TMUXTEST}"
+        DEVNULL=/dev/fd/2
+fi
+if [ -n "$PORT" ]; then
+	TMUXTEST="-p${PORT} ${TMUXTEST}"
+fi
+if [ -n "$USERNAME" ]; then
+	seenhost=0
+	userafter=0
+	for arg in "$@"; do
+		if (( $seenhost )); then
+			if [ "${arg#-l}" != "${arg}" ]; then
+				userafter=1
+				break
+			fi
+		elif [ "${arg}" = "${HOST}" ]; then
+			seenhost=1
+		fi
+	done
+	if (( $userafter )); then
+		TMUXTEST="${TMUXTEST} -l${USERNAME}"
+	else
+		TMUXTEST="-l${USERNAME} ${TMUXTEST}"
+	fi
+fi
+TMUXTEST="${TMUXTEST} test ! -f ~/.tmux_fallback && test -e ~/bin/tmux-chooser && which tmux >/dev/null"
+BATCHMODE="-o BatchMode=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null"
+PUBLICKEYONLY="-o PreferredAuthentications=publickey"
+# Check if tmux is there, use a batchmode string so no interaction
+if ! $SSH $BATCHMODE $TMUXTEST 2>${DEVNULL}; then
+	# remote doesn't have tmux, just exec
+	exec $SSH "$@"
+fi
+
+# run ssh, expecting far end tmux to kick in, so switch our prefix now, and then back on exit
+set_prefix() {
+    tmux set-option prefix $1
+    tmux set-option prefix2 $1
+    tmux bind-key $1 send-keys $1
+}
+remove_prefix() {
+    tmux set-option -u prefix
+    tmux set-option -u prefix2
+    tmux unbind-key $1
+}
+prefix="C-b"
+set_prefix "$prefix" >/dev/null 2>&1
+trap 'remove_prefix "'"$prefix"'" >/dev/null 2>&1' INT
+export LC_TMUX=$(uuid)
+$AUTOSSH "$@"
+RET=$?
+remove_prefix "$prefix" >/dev/null 2>&1
+#ssh-add -x
+exit $RET
