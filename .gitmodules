@@ -2,20 +2,20 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 [submodule "dircolors-solarized"]
-	path = dircolors-solarized
+	path = submodules/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
 [submodule "dynamic-colors"]
-	path = dynamic-colors
+	path = submodules/dynamic-colors
 	url = https://github.com/sos4nt/dynamic-colors
 [submodule "bash-it"]
-	path = bash-it
+	path = submodules/bash-it
 	url = https://github.com/Bash-it/bash-it
 [submodule "urxvt-font-size"]
-	path = urxvt-font-size
+	path = submodules/urxvt-font-size
 	url = https://github.com/majutsushi/urxvt-font-size
 [submodule "urxvt-perls"]
-	path = urxvt-perls
+	path = submodules/urxvt-perls
 	url = https://github.com/muennich/urxvt-perls
 [submodule "ssh-ident"]
-	path = ssh-ident
+	path = submodules/ssh-ident
 	url = https://github.com/ccontavalli/ssh-ident

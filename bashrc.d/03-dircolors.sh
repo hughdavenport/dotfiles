@@ -1,4 +1,4 @@
-eval `dircolors $HOME/.dircolors-solarized/dircolors.ansi-universal`
+eval `dircolors $HOME/.dotfiles/submodules/dircolors-solarized/dircolors.ansi-universal`
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='dir --color=auto'
