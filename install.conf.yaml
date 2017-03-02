@@ -15,6 +15,7 @@
     ~/.config/i3/config:
         path: i3-config
         force: true
+    ~/.ssh-ident: ssh-ident
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
 - shell: 
