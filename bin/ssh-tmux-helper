@@ -4,7 +4,7 @@ SSH="/usr/bin/ssh"
 AUTOSSH=$(which autossh)
 
 # Generate a config file
-cat ~/.ssh/config.d/* 2>/dev/null > ~/.ssh/config
+cat ~/.ssh/config.d/* ~/.ssh/config.d-secret/* 2>/dev/null > ~/.ssh/config
 
 #ssh-add -X
 [ -z "$TMUX" ] && exec $SSH "$@"
