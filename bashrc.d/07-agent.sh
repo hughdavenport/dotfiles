@@ -6,6 +6,6 @@ fi
 echo | gpg-connect-agent 2>/dev/null || \
     eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
 export GPG_TTY=$(tty)
-alias ssh="~/.dotfiles/submodules/ssh-ident/ssh-ident"
+alias ssh="BINARY_SSH=ssh ~/.dotfiles/submodules/ssh-ident/ssh-ident"
 alias scp="BINARY_SSH=scp ssh"
 alias rsync="BINARY_SSH=rsync ssh"
