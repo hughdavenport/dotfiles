@@ -155,7 +155,7 @@ bar {
         status_command i3status
 }
 
-exec_always --no-startup-id ~/bin/i3wm-startup.sh
+exec --no-startup-id ~/bin/i3wm-startup.sh
 
 bindsym $mod+Shift+z exec --no-startup-id slimlock &
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type
