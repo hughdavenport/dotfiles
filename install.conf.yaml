@@ -18,6 +18,7 @@
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
     ~/.gnupg/gpg.conf: gpg.conf
+    ~/.gnupg/gpg-agent.conf: gpg-agent.conf
     ~/.dynamic-colors: submodules/dynamic-colors
     ~/.gitconfig: gitconfig
 - shell: 

@@ -17,9 +17,23 @@ password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
 
 [[ -n $password ]] || exit
 
+ln -sf /usr/bin/pinentry-qt ~/bin/pinentry
+
 if [[ $typeit -eq 0 ]]; then
 	pass show -c "$password" 2>/dev/null
+	if [ $? -eq 0 ]; then
+		notify-send "Password $password copied to clipboard"
+	else
+		notify-send "Error obtaining password $password"
+	fi
 else
-	pass show "$password" | { read -r pass; printf %s "$pass"; } |
-		xdotool type --clearmodifiers --file -
+	pass show "$password" | { read -r pass; printf "type --clearmodifiers %s" "$pass"; } |
+		xdotool -
+	if [ $? -eq 0 ]; then
+		notify-send "Password $password pasted to screen"
+	else
+		notify-send "Error obtaining password $password"
+	fi
 fi
+
+ln -sf /usr/bin/pinentry-curses ~/bin/pinentry
