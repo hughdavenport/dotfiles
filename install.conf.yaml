@@ -22,9 +22,10 @@
     ~/.dynamic-colors: submodules/dynamic-colors
     ~/.gitconfig: gitconfig
 - shell: 
-    - [mkdir -p ~/.bash-completion ~/.urxvt/ext, Making directories to link submodules into]
+    - [mkdir -p ~/.bash-completion ~/.urxvt/ext ~/.password-store/.extensions, Making directories to link submodules into]
     - [git submodule update --init --recursive, Installing submodules]
 - link:
     ~/.bash-completion/tmux.completion.bash: submodules/bash-it/completion/available/tmux.completion.bash
     ~/.urxvt/ext/font-size: submodules/urxvt-font-size/font-size
     ~/bin/ssh: submodules/ssh-ident/ssh-ident
+    ~/.password-store/.extensions/otp.bash: submodules/pass-otp/otp.bash

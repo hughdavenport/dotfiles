@@ -19,3 +19,6 @@
 [submodule "ssh-ident"]
 	path = submodules/ssh-ident
 	url = https://github.com/ccontavalli/ssh-ident
+[submodule "submodules/pass-otp"]
+	path = submodules/pass-otp
+	url = https://github.com/tadfisher/pass-otp
