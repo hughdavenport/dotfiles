@@ -22,3 +22,6 @@
 [submodule "submodules/pass-otp"]
 	path = submodules/pass-otp
 	url = https://github.com/tadfisher/pass-otp
+[submodule "submodules/translate-shell"]
+	path = submodules/translate-shell
+	url = https://github.com/soimort/translate-shell

@@ -24,8 +24,10 @@
 - shell: 
     - [mkdir -p ~/.bash-completion ~/.urxvt/ext ~/.password-store/.extensions, Making directories to link submodules into]
     - [git submodule update --init --recursive, Installing submodules]
+    - [make -C submodules/translate-shell]
 - link:
     ~/.bash-completion/tmux.completion.bash: submodules/bash-it/completion/available/tmux.completion.bash
     ~/.urxvt/ext/font-size: submodules/urxvt-font-size/font-size
     ~/bin/ssh: submodules/ssh-ident/ssh-ident
     ~/.password-store/.extensions/otp.bash: submodules/pass-otp/otp.bash
+    ~/bin/trans: submodules/translate-shell/build/trans
