@@ -25,6 +25,7 @@
 [submodule "submodules/translate-shell"]
 	path = submodules/translate-shell
 	url = https://github.com/soimort/translate-shell
+	branch = stable
 [submodule "submodules/pass-extension-tail"]
 	path = submodules/pass-extension-tail
 	url = https://github.com/palortoff/pass-extension-tail
