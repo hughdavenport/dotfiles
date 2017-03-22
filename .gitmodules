@@ -25,3 +25,12 @@
 [submodule "submodules/translate-shell"]
 	path = submodules/translate-shell
 	url = https://github.com/soimort/translate-shell
+[submodule "submodules/pass-extension-tail"]
+	path = submodules/pass-extension-tail
+	url = https://github.com/palortoff/pass-extension-tail
+[submodule "submodules/pass-extension-pin"]
+	path = submodules/pass-extension-pin
+	url = https://github.com/hughdavenport/pass-extension-pin
+[submodule "submodules/pass-extension-passphrase"]
+	path = submodules/pass-extension-passphrase
+	url = https://github.com/hughdavenport/pass-extension-passphrase
