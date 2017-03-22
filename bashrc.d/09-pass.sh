@@ -1,1 +1,2 @@
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+export PASSWORD_STORE_PASSPHRASE_DICTIONARY="$HOME/.dotfiles/DictionaryEnglish.txt"
