@@ -35,3 +35,6 @@
 [submodule "submodules/pass-extension-passphrase"]
 	path = submodules/pass-extension-passphrase
 	url = https://github.com/hughdavenport/pass-extension-passphrase
+[submodule "submodules/pass-extension-wifi_qr"]
+	path = submodules/pass-extension-wifi_qr
+	url = https://github.com/hughdavenport/pass-extension-wifi_qr

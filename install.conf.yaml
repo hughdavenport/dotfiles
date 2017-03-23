@@ -35,3 +35,4 @@
     ~/.password-store/.extensions/tailedit.bash: submodules/pass-extension-tail/src/tailedit.bash
     ~/.password-store/.extensions/pin.bash: submodules/pass-extension-pin/pin.bash
     ~/.password-store/.extensions/passphrase.bash: submodules/pass-extension-passphrase/passphrase.bash
+    ~/.password-store/.extensions/wifi_qr.bash: submodules/pass-extension-wifi_qr/wifi_qr.bash
