@@ -41,3 +41,9 @@
 [submodule "submodules/fzf"]
 	path = submodules/fzf
 	url = https://github.com/junegunn/fzf
+[submodule "submodules/vim-pathogen"]
+	path = submodules/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "submodules/vim-sensible"]
+	path = submodules/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git

@@ -21,8 +21,9 @@
     ~/.gnupg/gpg-agent.conf: gpg-agent.conf
     ~/.dynamic-colors: submodules/dynamic-colors
     ~/.gitconfig: gitconfig
+    ~/.vimrc: vimrc
 - shell: 
-    - [mkdir -p ~/.bash-completion ~/.urxvt/ext ~/.password-store/.extensions, Making directories to link submodules into]
+    - [mkdir -p ~/.bash-completion ~/.urxvt/ext ~/.password-store/.extensions ~/.vim/autoload ~/.vim/bundle, Making directories to link submodules into]
     - [git submodule update --init --recursive, Installing submodules]
     - [make -C submodules/translate-shell]
     - [submodules/fzf/install --bin]
@@ -40,3 +41,6 @@
     ~/.password-store/.extensions/pin.bash: submodules/pass-extension-pin/pin.bash
     ~/.password-store/.extensions/passphrase.bash: submodules/pass-extension-passphrase/passphrase.bash
     ~/.password-store/.extensions/wifi_qr.bash: submodules/pass-extension-wifi_qr/wifi_qr.bash
+    ~/.vim/autoload/pathogen.vim: submodules/vim-pathogen/autoload/pathogen.vim
+    ~/.vim/bundle/vim-sensible: submodules/vim-sensible
+    ~/.vim/bundle/fzf: submodules/fzf
