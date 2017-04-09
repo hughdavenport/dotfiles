@@ -53,3 +53,12 @@
 [submodule "submodules/vim-fugitive"]
 	path = submodules/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "submodules/vim-sleuth"]
+	path = submodules/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth
+[submodule "submodules/vim-surround"]
+	path = submodules/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "submodules/vim-commentary"]
+	path = submodules/vim-commentary
+	url = https://github.com/tpope/vim-commentary
