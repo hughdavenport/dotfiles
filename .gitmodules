@@ -65,3 +65,6 @@
 [submodule "submodules/vim-rsi"]
 	path = submodules/vim-rsi
 	url = https://github.com/tpope/vim-rsi
+[submodule "submodules/vim-gitgutter"]
+	path = submodules/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
