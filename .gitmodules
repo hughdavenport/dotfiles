@@ -71,3 +71,9 @@
 [submodule "submodules/vim-signify"]
 	path = submodules/vim-signify
 	url = https://github.com/mhinz/vim-signify
+[submodule "submodules/vim-airline"]
+	path = submodules/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule "submodules/vim-airline-themes"]
+	path = submodules/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes

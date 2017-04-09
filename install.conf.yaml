@@ -52,3 +52,5 @@
     ~/.vim/bundle/vim-rsi: submodules/vim-rsi
     ~/.vim/bundle/vim-signify: submodules/vim-signify
     ~/.vim/bundle/syntastic: submodules/syntastic
+    ~/.vim/bundle/vim-airline: submodules/vim-airline
+    ~/.vim/bundle/vim-airline-themes: submodules/vim-airline-themes

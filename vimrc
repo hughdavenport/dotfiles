@@ -5,3 +5,5 @@ filetype plugin indent on
 
 map <C-p> :FZF<CR>
 map <C-b> :Buffers<CR>
+
+let g:airline_theme='solarized'
