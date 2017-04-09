@@ -50,3 +50,6 @@
 [submodule "submodules/fzf.vim"]
 	path = submodules/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "submodules/vim-fugitive"]
+	path = submodules/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive

@@ -45,3 +45,4 @@
     ~/.vim/bundle/vim-sensible: submodules/vim-sensible
     ~/.vim/bundle/fzf: submodules/fzf
     ~/.vim/bundle/fzf.vim: submodules/fzf.vim
+    ~/.vim/bundle/vim-fugitive: submodules/vim-fugitive
