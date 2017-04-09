@@ -77,3 +77,6 @@
 [submodule "submodules/vim-airline-themes"]
 	path = submodules/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
+[submodule "submodules/vim-colors-solarized"]
+	path = submodules/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
