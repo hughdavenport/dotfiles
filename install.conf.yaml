@@ -50,4 +50,5 @@
     ~/.vim/bundle/vim-commentary: submodules/vim-commentary
     ~/.vim/bundle/vim-surround: submodules/vim-surround
     ~/.vim/bundle/vim-rsi: submodules/vim-rsi
-    ~/.vim/bundle/vim-gitgutter: submodules/vim-gitgutter
+    ~/.vim/bundle/vim-signify: submodules/vim-signify
+    ~/.vim/bundle/syntastic: submodules/syntastic

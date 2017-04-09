@@ -65,6 +65,9 @@
 [submodule "submodules/vim-rsi"]
 	path = submodules/vim-rsi
 	url = https://github.com/tpope/vim-rsi
-[submodule "submodules/vim-gitgutter"]
-	path = submodules/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter
+[submodule "submodules/syntastic"]
+	path = submodules/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule "submodules/vim-signify"]
+	path = submodules/vim-signify
+	url = https://github.com/mhinz/vim-signify
