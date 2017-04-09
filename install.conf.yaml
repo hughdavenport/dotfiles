@@ -49,3 +49,4 @@
     ~/.vim/bundle/vim-sleuth: submodules/vim-sleuth
     ~/.vim/bundle/vim-commentary: submodules/vim-commentary
     ~/.vim/bundle/vim-surround: submodules/vim-surround
+    ~/.vim/bundle/vim-rsi: submodules/vim-rsi

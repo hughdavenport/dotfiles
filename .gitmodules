@@ -62,3 +62,6 @@
 [submodule "submodules/vim-commentary"]
 	path = submodules/vim-commentary
 	url = https://github.com/tpope/vim-commentary
+[submodule "submodules/vim-rsi"]
+	path = submodules/vim-rsi
+	url = https://github.com/tpope/vim-rsi
