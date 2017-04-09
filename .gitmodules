@@ -38,3 +38,6 @@
 [submodule "submodules/pass-extension-wifi_qr"]
 	path = submodules/pass-extension-wifi_qr
 	url = https://github.com/hughdavenport/pass-extension-wifi_qr
+[submodule "submodules/fzf"]
+	path = submodules/fzf
+	url = https://github.com/junegunn/fzf

@@ -25,11 +25,15 @@
     - [mkdir -p ~/.bash-completion ~/.urxvt/ext ~/.password-store/.extensions, Making directories to link submodules into]
     - [git submodule update --init --recursive, Installing submodules]
     - [make -C submodules/translate-shell]
+    - [submodules/fzf/install --bin]
 - link:
     ~/.bash-completion/tmux.completion.bash: submodules/bash-it/completion/available/tmux.completion.bash
+    ~/.bash-completion/fzf.completion.bash: submodules/fzf/shell/completion.bash
     ~/.urxvt/ext/font-size: submodules/urxvt-font-size/font-size
     ~/bin/ssh: submodules/ssh-ident/ssh-ident
     ~/bin/trans: submodules/translate-shell/build/trans
+    ~/bin/fzf: submodules/fzf/bin/fzf
+    ~/bin/fzf-tmux: submodules/fzf/bin/fzf-tmux
     ~/.password-store/.extensions/otp.bash: submodules/pass-otp/otp.bash
     ~/.password-store/.extensions/tail.bash: submodules/pass-extension-tail/src/tail.bash
     ~/.password-store/.extensions/tailedit.bash: submodules/pass-extension-tail/src/tailedit.bash
