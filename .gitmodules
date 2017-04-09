@@ -47,3 +47,6 @@
 [submodule "submodules/vim-sensible"]
 	path = submodules/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule "submodules/fzf.vim"]
+	path = submodules/fzf.vim
+	url = https://github.com/junegunn/fzf.vim

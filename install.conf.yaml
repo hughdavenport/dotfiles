@@ -44,3 +44,4 @@
     ~/.vim/autoload/pathogen.vim: submodules/vim-pathogen/autoload/pathogen.vim
     ~/.vim/bundle/vim-sensible: submodules/vim-sensible
     ~/.vim/bundle/fzf: submodules/fzf
+    ~/.vim/bundle/fzf.vim: submodules/fzf.vim
