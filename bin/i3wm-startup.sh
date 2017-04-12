@@ -11,3 +11,9 @@ system-config-printer-applet &
 
 # Start xautolock
 xautolock -corners +-00 -cornerredelay 60 -time 1 &
+
+# Start remmina
+remmina -i &
+
+# Start redshift
+redshift-gtk &
