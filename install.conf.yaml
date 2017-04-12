@@ -41,6 +41,7 @@
     ~/.password-store/.extensions/pin.bash: submodules/pass-extension-pin/pin.bash
     ~/.password-store/.extensions/passphrase.bash: submodules/pass-extension-passphrase/passphrase.bash
     ~/.password-store/.extensions/wifi_qr.bash: submodules/pass-extension-wifi_qr/wifi_qr.bash
+    ~/.password-store/.extensions/update.bash: submodules/pass-update/update.bash
     ~/.vim/autoload/pathogen.vim: submodules/vim-pathogen/autoload/pathogen.vim
     ~/.vim/bundle/vim-sensible: submodules/vim-sensible
     ~/.vim/bundle/fzf: submodules/fzf

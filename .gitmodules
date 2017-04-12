@@ -80,3 +80,6 @@
 [submodule "submodules/vim-colors-solarized"]
 	path = submodules/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "submodules/pass-update"]
+	path = submodules/pass-update
+	url = https://github.com/roddhjav/pass-update
