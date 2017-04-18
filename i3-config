@@ -157,5 +157,5 @@ bar {
 
 exec --no-startup-id ~/bin/i3wm-startup.sh
 
-bindsym $mod+Shift+z exec --no-startup-id slimlock &
+bindsym $mod+Shift+z exec --no-startup-id ~/bin/xlock &
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type
