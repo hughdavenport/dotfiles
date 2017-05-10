@@ -9,3 +9,5 @@ map <C-b> :Buffers<CR>
 set background=dark
 colorscheme solarized
 let g:airline_theme='solarized'
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
