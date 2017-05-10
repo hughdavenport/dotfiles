@@ -159,3 +159,6 @@ exec --no-startup-id ~/bin/i3wm-startup.sh
 
 bindsym $mod+Shift+z exec --no-startup-id ~/bin/xlock &
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type
+bindsym Mod1+Shift+3 exec ~/bin/scrot
+bindsym Mod1+Shift+4 exec ~/bin/scrot -s
+bindsym Mod1+Shift+5 exec ~/bin/scrot -u
