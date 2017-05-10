@@ -83,3 +83,6 @@
 [submodule "submodules/pass-update"]
 	path = submodules/pass-update
 	url = https://github.com/roddhjav/pass-update
+[submodule "submodules/editorconfig-vim"]
+	path = submodules/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
