@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+#  Gentoo Update v1.0
+#
+#  Script to handle auto-updates on multiple Gentoo Linux systems.
+#    -Be sure to set the LOCKFILE, SERVERS and LOGDIR variables at the top
+#    -This script assumes that /usr/portage is shared via NFS (or some other
+#     means) between all systems and is therefore only synced once.
+#    -SSH keys must be setup so the server this script is running from can
+#     automatically login to each of the servers in the list without 
+#     requiring a password
+#
+#    Sumit Khanna <sumdog@gmail.com>
+#      http://penguindreams.org
+#
+#    Free for noncommercial use
+#
+
+LOCKFILE=/var/run/gentoo-update.sh.pid
+LOGDIR="/var/log/gentoo-update"
+DATE=`date +%Y%m%d_%H%M`
+LOG="$LOGDIR/update.log";
+
+if [ -f "$LOCKFILE" ]; then
+  echo "Can not Start. Update-all is running (`cat $LOCKFILE`)";
+  exit 2;
+fi
+echo $$ > $LOCKFILE
+
+
+echo "---$DATE---" > $LOG
+echo "Starting Update Process" >> $LOG
+emerge --sync &> $LOGDIR/sync.out
+if [ "$?" != 0 ]; then
+   echo "Sync Failed!!!" >> $LOG
+   tail $LOGDIR/sync.out >> $LOG 2>&1
+   cat $LOGDIR/update.log
+   rm $LOCKFILE
+   exit 1
+fi
+layman -S &> $LOGDIR/layman-sync.out
+if [ "$?" != 0 ]; then
+   echo "Warning: Layman Sync Failed!!!" >> $LOG
+   tail $LOGDIR/layman-sync.out >> $LOG 2>&1
+   cat $LOGDIR/update.log
+fi
+i=$(hostname)
+   echo "Updating $i" >> $LOG
+   emerge -uDN --backtrack=100 world > $LOGDIR/$i.out 2>&1
+   CHECK=$?
+   cat $LOGDIR/$i.out | grep ">>>" | grep Installing | sed 's/^>>>//' >> $LOG
+   if [ "$CHECK" != 0 ]; then
+     echo "Error:" >> $LOG
+     tail -n 20 $LOGDIR/$i.out >> $LOG
+   fi
+   echo "Rebuilding $i" >> $LOG
+   #rm /root/.revdep-rebuild*.?_* &> /dev/null
+   revdep-rebuild > $LOGDIR/$i.rebuild.out 2>&1
+   CHECK=$?
+   cat $LOGDIR/$i.rebuild.out | grep ">>>" | grep Installing  | sed 's/^>>>//' >> $LOG
+   if [ "$CHECK" != 0 ]; then
+     echo "Error:" >> $LOG
+     tail -n 20 $LOGDIR/$i.rebuild.out >> $LOG
+   fi
+
+cat $LOGDIR/update.log
+rm $LOCKFILE
