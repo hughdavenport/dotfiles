@@ -15,6 +15,9 @@
     ~/.config/i3/config:
         path: i3-config
         force: true
+    ~/.i3status.conf:
+        path: i3status.conf
+        force: true
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
     ~/.gnupg/gpg.conf: gpg.conf
