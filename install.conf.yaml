@@ -25,6 +25,7 @@
     ~/.dynamic-colors: submodules/dynamic-colors
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
+    ~/.rtorrent.rc: rtorrent.rc
 - shell: 
     - [mkdir -p ~/.bash-completion ~/.urxvt/ext ~/.password-store/.extensions ~/.vim/autoload ~/.vim/bundle, Making directories to link submodules into]
     - [git submodule update --init --recursive, Installing submodules]
