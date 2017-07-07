@@ -36,7 +36,7 @@ if [[ $typeit -eq 0 ]]; then
 		notify-send "Error obtaining contents of $password"
 	fi
 else
-	pass $show "$password" | { read -r pass; printf "type --clearmodifiers -- %s" "$pass"; } |
+	pass $show "$password" | { read -r pass; printf "type --clearmodifiers -- %s" "'${pass/"'"/"'\"'\"'"}'"; } |
 		xdotool -
 	if [ $? -eq 0 ]; then
 		notify-send "$thing $password pasted to screen"
