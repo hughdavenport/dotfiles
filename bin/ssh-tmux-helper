@@ -23,11 +23,13 @@ fi
 ARGEND=0
 expectuser=0
 USERNAME=""
-exportport=0
+expectport=0
 PORT=""
 VERBOSE=0
 HOST=""
 IPV4_6_ARGS=""
+CTL_CMD=""
+expectctl=0
 for arg in $ARGS; do
 	if (( $ARGEND )); then
 		if [ -z "$HOST" ]; then
@@ -55,8 +57,16 @@ for arg in $ARGS; do
 		IPV4_6_ARGS="${IPV4_6_ARGS} ${arg}"
         elif [ "$arg" = "-v" ]; then
                 let VERBOSE++
+	elif [ "$arg" = "-O" ]; then
+		expectctl=1
+	elif (( $expectctl )); then
+		CTL_CMD=$arg
 	fi
 done
+
+if [ -n "$CTL_CMD" ]; then
+	exec $SSH "$@"
+fi
 
 # Make a tmux test string, making sure that any -l option is kept in correct order
 TMUXTEST="$HOST"
