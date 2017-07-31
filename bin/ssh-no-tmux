@@ -1,0 +1,2 @@
+#!/bin/sh
+BINARY_SSH=/usr/bin/ssh ssh $@
