@@ -86,3 +86,21 @@
 [submodule "submodules/editorconfig-vim"]
 	path = submodules/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "submodules/tmux-open"]
+	path = submodules/tmux-open
+	url = https://github.com/tmux-plugins/tmux-open
+[submodule "submodules/tmux-yank"]
+	path = submodules/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank
+[submodule "submodules/tmux-copycat"]
+	path = submodules/tmux-copycat
+	url = https://github.com/tmux-plugins/tmux-copycat
+[submodule "submodules/tmux-resurrect"]
+	path = submodules/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "submodules/tmux-continuum"]
+	path = submodules/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum
+[submodule "submodules/tmux-sensible"]
+	path = submodules/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
