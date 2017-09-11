@@ -4,3 +4,7 @@
 
 [alias]
 	co = checkout
+	glog = log --decorate --oneline --graph
+	dc = diff --cached
+[commit]
+#	gpgsign = true
