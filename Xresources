@@ -23,10 +23,10 @@ URxvt.keysym.C-underscore: font-size:show
 URxvt.font-size.step: 2
 
 ! This was on old laptop, had comment doesnot do well with accents so will test that
-URxvt*font: xft:Terminus:size=14
+!URxvt*font: xft:Terminus:size=14
 ! Has really large spacing, not a fan
 !URxvt*font: xft:Incosolata:size=10
 ! New one, looks nice from the start, not as crisp as terminus though, need to test with accents and stuff
-!URxvt*font: xft:Hack:size=10
+URxvt*font: xft:Hack:size=10
 
 ! Font wise, I also had Emoji One Color, and Symbola installed
