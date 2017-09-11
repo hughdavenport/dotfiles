@@ -13,7 +13,9 @@ system-config-printer-applet &
 xautolock -corners +-00 -cornerredelay 60 -time 1 -locker ~/bin/xlock &
 
 # Start spideroak
-/opt/SpiderOakONE/lib/SpiderOakONE &
+#/opt/SpiderOakONE/lib/SpiderOakONE &
+# Start seafile
+seafile-applet &
 
 # Start remmina
 remmina -i &
