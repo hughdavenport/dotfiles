@@ -1,2 +1,5 @@
 #!/bin/sh
+# Generate a config file
+cat ~/.ssh/config.d/* ~/.ssh/config.d-secret/* 2>/dev/null > ~/.ssh/config
+
 BINARY_SSH=/usr/bin/ssh ssh $@

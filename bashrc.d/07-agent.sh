@@ -9,4 +9,4 @@ export GPG_TTY=$(tty)
 export BINARY_SSH="~/bin/ssh-tmux-helper"
 alias scp="BINARY_SSH=scp ssh"
 alias sftp="BINARY_SSH=sftp ssh"
-alias rsync="BINARY_SSH=rsync ssh"
+#alias rsync="BINARY_SSH=rsync ssh"

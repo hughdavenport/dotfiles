@@ -61,16 +61,25 @@ for arg in $ARGS; do
 		expectctl=1
 	elif (( $expectctl )); then
 		CTL_CMD=$arg
+	elif [ "$arg" = "-F" ]; then
+		expectconfig=1
+	elif (( $expectconfig )); then
+		CONFIG_FILE=$arg
+	elif [ "$arg" = "--ignoretmux" ]; then
+		ignoretmux=1
 	fi
 done
 
-if [ -n "$CTL_CMD" ]; then
+if [ -n "$CTL_CMD" ] || (( $ignoretmux )); then
 	exec $SSH "$@"
 fi
 
 # Make a tmux test string, making sure that any -l option is kept in correct order
 TMUXTEST="$HOST"
 DEVNULL=/dev/null
+if [ -n "$CONFIG_FILE" ]; then
+	TMUXTEST="${TMUXTEST} -F ${CONFIG_FILE}"
+fi
 if [ "$VERBOSE" -ne 0 ]; then
         printf -v VERBOSE "%${VERBOSE}s"
         TMUXTEST="-${VERBOSE// /v} ${TMUXTEST}"
