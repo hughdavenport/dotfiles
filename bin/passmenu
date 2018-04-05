@@ -36,6 +36,7 @@ if [[ $typeit -eq 0 ]]; then
 		notify-send "Error obtaining contents of $password"
 	fi
 else
+	tmux set -g key-table empty
 	pass $show "$password" | { read -r pass; printf "type --clearmodifiers -- %s" "'${pass/"'"/"'\"'\"'"}'"; } |
 		xdotool -
 	if [ $? -eq 0 ]; then
@@ -43,6 +44,7 @@ else
 	else
 		notify-send "Error obtaining contents of $password"
 	fi
+	tmux set -gu key-table
 fi
 
 ln -sf /usr/bin/pinentry-curses ~/bin/pinentry
