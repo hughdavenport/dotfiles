@@ -11,3 +11,5 @@ colorscheme solarized
 let g:airline_theme='solarized'
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+set spell spelllang=en_nz

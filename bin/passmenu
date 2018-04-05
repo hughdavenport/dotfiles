@@ -17,7 +17,7 @@ password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
 
 [[ -n $password ]] || exit
 
-ln -sf /usr/bin/pinentry-qt ~/bin/pinentry
+ln -sf /usr/bin/pinentry-gnome3 ~/bin/pinentry
 
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 

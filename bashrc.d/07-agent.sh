@@ -1,9 +1,5 @@
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-  . "${HOME}/.gpg-agent-info"
-  export GPG_AGENT_INFO
-fi
-echo | gpg-connect-agent 2>/dev/null || \
-    eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
+echo | gpg-connect-agent --no-auto-start 2>/dev/null || \
+    eval $(gpg-agent --daemon 2>/dev/null)
 export GPG_TTY=$(tty)
 # env and aliases for ssh-ident
 export BINARY_SSH="~/bin/ssh-tmux-helper"

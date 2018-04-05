@@ -55,7 +55,8 @@ i=$(hostname)
    fi
    echo "Rebuilding $i" >> $LOG
    #rm /root/.revdep-rebuild*.?_* &> /dev/null
-   revdep-rebuild > $LOGDIR/$i.rebuild.out 2>&1
+#   revdep-rebuild > $LOGDIR/$i.rebuild.out 2>&1
+   emerge @preserved-rebuild > $LOGDIR/$i.rebuild.out 2>&1
    CHECK=$?
    cat $LOGDIR/$i.rebuild.out | grep ">>>" | grep Installing  | sed 's/^>>>//' >> $LOG
    if [ "$CHECK" != 0 ]; then

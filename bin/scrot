@@ -1,4 +1,4 @@
 #!/bin/sh
 
 sleep 0.2
-/usr/bin/scrot -e 'mv $f ~/scrots/; notify-send "made screenshot in $f"' "$@"
+/usr/bin/scrot -e '~/bin/move-scrot.sh $f' "$@"
