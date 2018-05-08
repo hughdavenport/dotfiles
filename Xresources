@@ -27,6 +27,6 @@ URxvt.font-size.step: 2
 ! Has really large spacing, not a fan
 !URxvt*font: xft:Incosolata:size=10
 ! New one, looks nice from the start, not as crisp as terminus though, need to test with accents and stuff
-URxvt*font: xft:Hack:size=10
+URxvt*font: xft:Hack:size=10,xft:EmojiOne\ Color
 
 ! Font wise, I also had Emoji One Color, and Symbola installed
