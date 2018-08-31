@@ -80,6 +80,8 @@ bindsym $mod+f fullscreen toggle
 #bindsym $mod+w layout tabbed
 #bindsym $mod+e layout toggle split
 
+bindsym $mod+t exec "~/bin/i3-toggle-tabbed.sh"
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
