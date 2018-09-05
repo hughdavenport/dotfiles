@@ -114,7 +114,7 @@ PUBLICKEYONLY="-o PreferredAuthentications=publickey"
 # Check if tmux is there, use a batchmode string so no interaction
 if ! $SSH $BATCHMODE $TMUXTEST 2>${DEVNULL}; then
 	# remote doesn't have tmux, just exec
-	exec $SSH "$@"
+	exec $AUTOSSH "$@"
 fi
 
 # run ssh, expecting far end tmux to kick in, so switch our prefix now, and then back on exit

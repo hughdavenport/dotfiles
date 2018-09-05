@@ -68,13 +68,15 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+s split h
+bindsym $mod+v split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+s split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+#bindsym $mod+f fullscreen toggle
+# poor mans full screen, just turn it into tabbed mode
+bindsym $mod+f exec "~/bin/i3-toggle-tabbed.sh"
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
