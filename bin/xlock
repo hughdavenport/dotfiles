@@ -1,3 +1,9 @@
 #!/bin/sh
 
-i3lock
+( 
+     flock -w 0.007 -n 9 || { echo lock failed; exit 1; }
+     sleep-screen-delay &
+     PID=$!
+     i3lock -n
+     kill $(ps --ppid $PID -o pid=)
+) 9>~/.xlock

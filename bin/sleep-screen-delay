@@ -1,0 +1,5 @@
+#!/bin/sh
+
+SECONDS=30
+notify-send "Sleeping screen in $SECONDS seconds"
+sleep $SECONDS && xset +dpms dpms force off;
