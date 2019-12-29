@@ -28,6 +28,3 @@ pnmixer &
 
 # Start up workrave
 workrave &
-
-# Start dropbox
-~/.dropbox-dist/dropboxd &
