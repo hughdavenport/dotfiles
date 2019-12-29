@@ -30,3 +30,7 @@ URxvt.font-size.step: 2
 URxvt*font: xft:Hack:size=12,xft:Twitter Color Emoji
 
 ! Font wise, I also had Emoji One Color, and Symbola installed
+
+urxvt*perl-ext-common: default,urxvt-colors
+urxvt*perl-lib: /home/hugh/.dotfiles/urxvt-perl
+urxvt*keysym.C-9: perl:urxvt-colors:
