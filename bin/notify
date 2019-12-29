@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DATE=$(date)
+$@
+RET=$?
+notify-send -u 2 "$(echo -e "Finished process\nCommand: $@\nPWD: $PWD\nStarted: $DATE\nFinished: $DATE\nExit status: $RET")"
