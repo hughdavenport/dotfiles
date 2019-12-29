@@ -1,0 +1,17 @@
+#!/bin/bash
+
+OUTPUT="HDMI-2"
+STATUS=""
+CONNECTION="connected"
+if xrandr | grep "$OUTPUT" | grep disconnected 2>/dev/null >/dev/null; then
+     CONNECTION="disconnected"
+fi
+FORMAT=$(xrandr | grep "$OUTPUT" | grep '[0-9]*x[0-9]*+[0-9]*+[0-9]*' | cut -d ' ' -f 3)
+if test -z "$FORMAT"; then
+     STATUS="off"
+elif echo "$FORMAT" | grep '+0+0$' 2>/dev/null >/dev/null; then
+     STATUS="mirror"
+else
+     STATUS="external"
+fi
+echo $STATUS $CONNECTION

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+WORKSPACE="$1"
+SCREEN=($(detect-screen-layout))
+
+if test "$WORKSPACE" = "11"; then
+     # Moving to external monitor, if it is disconnected, turn it off
+     if test "${SCREEN[0]}" != "off" -a "${SCREEN[1]}" = "disconnected"; then
+          change-screen-layout off
+     fi
+elif test "${SCREEN[0]}" = "mirror"; then
+     # Changing from external monitor, but on mirror mode, so change it to external
+     change-screen-layout external
+fi
+i3-msg workspace "$WORKSPACE"
