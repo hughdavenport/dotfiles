@@ -1,0 +1,22 @@
+#!/bin/bash
+
+OUTPUT="HDMI-2"
+PRIMARY="eDP-1"
+STATUS="$1"
+
+case "$STATUS" in
+     off)
+          xrandr --output "$OUTPUT" --off
+          ;;
+     mirror)
+          # We want to be on external monitor
+          CURRENT=$(get-current-workspace)
+          i3-msg rename workspace "$CURRENT" to tmp
+          i3-msg rename workspace 11 to "$CURRENT"
+          i3-msg rename workspace tmp to 11
+          xrandr --output "$OUTPUT" --auto --same-as "$PRIMARY"
+          ;;
+     external)
+          xrandr --output "$OUTPUT" --auto --right-of "$PRIMARY"
+          ;;
+esac
