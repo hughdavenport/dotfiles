@@ -1,2 +1,2 @@
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
-export PASSWORD_STORE_PASSPHRASE_DICTIONARY="$HOME/.dotfiles/eff_short_wordlist_1.txt"
+export PASSWORD_STORE_PASSPHRASE_DICTIONARY="$HOME/.dotfiles/eff_short_wordlist_2_0.txt"
