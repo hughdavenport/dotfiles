@@ -104,3 +104,6 @@
 [submodule "submodules/tmux-sensible"]
 	path = submodules/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible
+[submodule "submodules/workman-layout"]
+	path = submodules/workman-layout
+	url = https://github.com/workman-layout/Workman

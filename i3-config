@@ -171,6 +171,16 @@ exec --no-startup-id ~/bin/i3wm-startup.sh
 bindsym $mod+Shift+z exec --no-startup-id ~/bin/xlock &
 bindsym $mod+p exec --no-startup-id ~/bin/passmenu --type
 bindsym $mod+Shift+p exec --no-startup-id ~/bin/passmenu --type
-bindsym Mod1+Shift+3 exec ~/bin/scrot
-bindsym Mod1+Shift+4 exec ~/bin/scrot -s
-bindsym Mod1+Shift+5 exec ~/bin/scrot -u
+bindsym Mod1+Shift+3 exec ~/bin/scrot-mine
+bindsym Mod1+Shift+4 exec ~/bin/scrot-mine -s
+bindsym Mod1+Shift+5 exec ~/bin/scrot-mine -u
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/audio vol-up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/audio vol-down
+bindsym XF86AudioMute exec --no-startup-id ~/bin/audio toggle-mute-out
+bindsym XF86AudioMicMute exec --no-startup-id ~/bin/audio toggle-mute-in
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
