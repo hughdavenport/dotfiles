@@ -21,6 +21,9 @@
     ~/.i3status.conf:
         path: i3status.conf
         force: true
+    ~/.config/redshift.conf:
+        path: redshift.conf
+        force: true
     ~/bin: bin
     ~/.ssh/config.d: ssh.config.d
     ~/.gnupg/gpg.conf: gpg.conf
