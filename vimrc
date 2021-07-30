@@ -26,3 +26,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 
 match ExtraWhitespace /\s\+\%#\@<!$/
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
