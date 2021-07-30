@@ -107,3 +107,9 @@
 [submodule "submodules/workman-layout"]
 	path = submodules/workman-layout
 	url = https://github.com/workman-layout/Workman
+[submodule "submodules/vim-ledger"]
+	path = submodules/vim-ledger
+	url = https://github.com/ledger/vim-ledger
+[submodule "submodules/vim-easy-align"]
+	path = submodules/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align
