@@ -1,0 +1,17 @@
+#!/bin/bash
+
+source ~/.dotfiles-secret/youtube-music.sh
+
+send_key() {
+	i3-msg '[con_id=__focused__] mark --add oldfocus' >/dev/null
+	i3-msg "[instance=${CHROMIUM_PLUGID}] focus" >/dev/null
+	xdotool type "${1}"
+	sleep 0.05
+	i3-msg '[con_mark=oldfocus] focus, mark --add --toggle oldfocus' >/dev/null
+}
+
+if [ "$1" = "toggle" ]; then
+	send_key ';'
+elif [ "$1" = "next" ]; then
+	send_key 'j'
+fi

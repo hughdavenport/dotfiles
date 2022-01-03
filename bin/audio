@@ -1,0 +1,22 @@
+#!/bin/bash
+
+DEFAULT_SINK=$(pactl info | grep "Default Sink" | cut -d " " -f3)
+DEFAULT_SOURCE=$(pactl info | grep "Default Source" | cut -d " " -f3)
+
+CMD="$1"
+env >> /tmp/audio-presses
+echo $CMD >> /tmp/audio-presses
+
+if [ "$1" = "vol-up" ]; then
+	pactl set-sink-volume "${DEFAULT_SINK}" +5%
+elif [ "$1" = "vol-down" ]; then
+	pactl set-sink-volume "${DEFAULT_SINK}" -5%
+elif [ "$1" = "toggle-mute-out" ]; then
+	pactl set-sink-mute "${DEFAULT_SINK}" toggle
+elif [ "$1" = "toggle-mute-in" ]; then
+	pactl set-source-mute "${DEFAULT_SOURCE}" toggle
+elif [ "$1" = "toggle" ]; then
+        ~/bin/youtube-music toggle
+elif [ "$1" = "next" ]; then
+        ~/bin/youtube-music next
+fi

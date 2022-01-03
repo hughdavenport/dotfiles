@@ -180,6 +180,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/audio vol-up
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/audio vol-down
 bindsym XF86AudioMute exec --no-startup-id ~/bin/audio toggle-mute-out
 bindsym XF86AudioMicMute exec --no-startup-id ~/bin/audio toggle-mute-in
+bindsym XF86AudioPlay exec --no-startup-id ~/bin/audio toggle
+bindsym XF86AudioNext exec --no-startup-id ~/bin/audio next
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
